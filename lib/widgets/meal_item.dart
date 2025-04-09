@@ -16,7 +16,7 @@ class MealItem extends StatelessWidget {
       child: Column(
         children: [
           InkWell(
-            onTap: () => onSelectMeal,
+            onTap: () => onSelectMeal(meal),
             child: Stack(
               children: [
                 FadeInImage(
