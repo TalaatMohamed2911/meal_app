@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import '../data/dummy_data.dart';
 import '../screens/meals_screen.dart';
 import '../models/category.dart';
 import '../models/meal.dart';
 
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+  const CategoryGridItem({
+    super.key,
+    required this.category,
+    required this.availableMeals,
+  });
   final Category category;
+  final List<Meal> availableMeals;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         final List<Meal> filteredMeals =
-            dummyMeals
+            availableMeals
                 .where((meal) => meal.categories.contains(category.id))
                 .toList();
         Navigator.of(context).push(
